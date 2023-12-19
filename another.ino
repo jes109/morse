@@ -1,6 +1,9 @@
 #include <SimpleDHT.h>
+#include <WiFi.h>
 #include <HTTPClient.h>
 #include <BluetoothSerial.h>
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
 BluetoothSerial SerialBT;
 const char ssid[] = "jessie";
 const char password[] = "chochorai";
@@ -22,6 +25,7 @@ int RED=16;
 int buttonstate = 0;
 int lastButtonstate = 0;
 void setup() {
+  WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
   pinMode(BTN,INPUT);
   pinMode(RED, OUTPUT);
   pinMode(GREEN, OUTPUT);
