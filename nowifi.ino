@@ -1,7 +1,6 @@
 #include <SimpleDHT.h>
 #include <BluetoothSerial.h>
-Bluet
-oothSerial SerialBT;
+BluetoothSerial SerialBT;
 int pinDHT11 = 15;
 SimpleDHT11 dht11(pinDHT11);
 int a=14;
@@ -23,6 +22,7 @@ void setup() {
   pinMode(BTN,INPUT);
   pinMode(RED, OUTPUT);
   pinMode(GREEN, OUTPUT);
+  pinMode(BUZZ, OUTPUT);
   pinMode(a, OUTPUT);  
   pinMode(b, OUTPUT);
   pinMode(c, OUTPUT);
@@ -205,5 +205,5 @@ void n7 () {dash();dash();dot();dot();dot();}
 void n8 () {dash();dash();dash();dot();dot();}
 void n9 () {dash();dash();dash();dash();dot();}
 void n0 () {dash();dash();dash();dash();dash();}
-void dot () {digitalWrite(BUZZ,HIGH); tone(BUZZ, 500); delay (100); digitalWrite(BUZZ,LOW); noTone(BUZZ); delay (200);}
-void dash () {digitalWrite(BUZZ,HIGH); tone(BUZZ, 500); delay (300); digitalWrite(BUZZ,LOW); noTone(BUZZ); delay (200);}
+void dot () {digitalWrite(BUZZ,HIGH); delay (100); digitalWrite(BUZZ,LOW); delay (200);}
+void dash () {digitalWrite(BUZZ,HIGH); delay (300); digitalWrite(BUZZ,LOW); delay (200);}
